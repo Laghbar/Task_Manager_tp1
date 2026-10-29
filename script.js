@@ -1,5 +1,6 @@
 
 const taskForm = document.getElementById("task-form");
+const taskPriority = document.getElementById("task-priority");
 const taskInput = document.getElementById("task-input");
 const taskList = document.getElementById("task-list");
 const emptyState = document.getElementById("empty-state");
@@ -45,7 +46,7 @@ function renderTasks() {
 
     const text = document.createElement("span");
     text.className = "task-text";
-    text.textContent = task.text;
+    text.textContent = `${task.text} - ${task.priority} priority`;
 
     const deleteButton = document.createElement("button");
     deleteButton.className = "delete-button";
@@ -84,8 +85,9 @@ taskForm.addEventListener("submit", event => {
 
   tasks.unshift({
     id: Date.now(),
-    text: text,
-    completed: false
+  text: text,
+  completed: false,
+  priority: taskPriority.value
   });
 
   saveTasks();
