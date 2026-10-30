@@ -1,4 +1,4 @@
-
+const { defaultTasks, addTask, toggleTask, removeTask } = require("./tasks.js");
 const taskForm = document.getElementById("task-form");
 const taskPriority = document.getElementById("task-priority");
 const taskInput = document.getElementById("task-input");
@@ -19,13 +19,13 @@ function saveTasks() {
 function renderTasks() {
   taskList.innerHTML = "";
 
-  const visibleTasks = tasks.filter(task => {
+  const visibleTasks = tasks.filter((task) => {
     if (currentFilter === "active") return !task.completed;
     if (currentFilter === "completed") return task.completed;
     return true;
   });
 
-  visibleTasks.forEach(task => {
+  visibleTasks.forEach((task) => {
     const item = document.createElement("li");
     item.className = "task-item";
 
@@ -55,7 +55,7 @@ function renderTasks() {
     deleteButton.setAttribute("aria-label", "Delete task");
 
     deleteButton.addEventListener("click", () => {
-      tasks = tasks.filter(t => t.id !== task.id);
+      tasks = tasks.filter((t) => t.id !== task.id);
       saveTasks();
       renderTasks();
     });
@@ -64,19 +64,17 @@ function renderTasks() {
     taskList.appendChild(item);
   });
 
-  const remaining = tasks.filter(task => !task.completed).length;
+  const remaining = tasks.filter((task) => !task.completed).length;
 
-  taskCount.textContent =
-    `${tasks.length} ${tasks.length === 1 ? "task" : "tasks"}`;
+  taskCount.textContent = `${tasks.length} ${tasks.length === 1 ? "task" : "tasks"}`;
 
-  remainingCount.textContent =
-    `${remaining} ${remaining === 1 ? "task" : "tasks"} remaining`;
+  remainingCount.textContent = `${remaining} ${remaining === 1 ? "task" : "tasks"} remaining`;
 
   emptyState.hidden = visibleTasks.length > 0;
   taskList.hidden = visibleTasks.length === 0;
 }
 
-taskForm.addEventListener("submit", event => {
+taskForm.addEventListener("submit", (event) => {
   event.preventDefault();
 
   const text = taskInput.value.trim();
@@ -85,9 +83,9 @@ taskForm.addEventListener("submit", event => {
 
   tasks.unshift({
     id: Date.now(),
-  text: text,
-  completed: false,
-  priority: taskPriority.value
+    text: text,
+    completed: false,
+    priority: taskPriority.value,
   });
 
   saveTasks();
@@ -97,11 +95,11 @@ taskForm.addEventListener("submit", event => {
   taskInput.focus();
 });
 
-filterButtons.forEach(button => {
+filterButtons.forEach((button) => {
   button.addEventListener("click", () => {
     currentFilter = button.dataset.filter;
 
-    filterButtons.forEach(filter => {
+    filterButtons.forEach((filter) => {
       filter.classList.toggle("active", filter === button);
     });
 
@@ -110,7 +108,7 @@ filterButtons.forEach(button => {
 });
 
 clearCompletedButton.addEventListener("click", () => {
-  tasks = tasks.filter(task => !task.completed);
+  tasks = tasks.filter((task) => !task.completed);
   saveTasks();
   renderTasks();
 });
