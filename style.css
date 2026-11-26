@@ -1,4 +1,3 @@
-
 * {
   box-sizing: border-box;
 }
@@ -12,7 +11,8 @@ body {
   background: #f4f6fb;
 }
 
-button, input {
+button,
+input {
   font: inherit;
 }
 
@@ -194,4 +194,18 @@ footer {
     align-items: flex-start;
     flex-direction: column;
   }
+}
+li {
+  display: flex;
+  align-items: center;
+}
+li span {
+  flex: 1;
+}
+.remove {
+  background: #ffffff;
+  color: #b0301c;
+  border: 1px solid #b0301c;
+  padding: 4px 8px;
+  font-size: 12px;
 }
