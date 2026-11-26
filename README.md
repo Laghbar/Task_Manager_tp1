@@ -1,15 +1,17 @@
-
 # Task Manager
 
 ## Description
-Task Manager is a simple web application that helps users organize and manage their daily tasks.
+
+Task Manager is a simple web application that helps users organize and manage their daily tasks.blablanla
 
 ## Technologies Used
+
 - HTML5
 - CSS3
 - JavaScript
 
 ## Features
+
 - Add new tasks.
 - Mark tasks as completed.
 - Delete tasks.
@@ -33,4 +35,5 @@ Task-Manager/
 3. Open index.html in your browser.
 
 ## Author
+
 Your Name
