@@ -5,7 +5,7 @@ const {
   addTask,
   toggleTask,
   removeTask,
-} = require("../task.js");
+} = require("../tasks.js");
 
 test("addTask ajoute la tâche à la fin de la liste", function () {
   // Étant donné une liste de départ
