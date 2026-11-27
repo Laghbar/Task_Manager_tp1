@@ -1,1 +1,5 @@
-{   "name": "task-manager-web",   "version": "0.4.0",   "description": "Task Manager Web - projet fil rouge DevOps",   "private": true,   "scripts": {     "test": "node --test"   } } 
+{   
+   "name": "task-manager-web",
+   "version": "0.5.0",   "description": "Task Manager Web - projet fil rouge DevOps",  
+    "private": true,   
+    "scripts": {     "test": "node --test",     "build": "node build.js"   } } 
